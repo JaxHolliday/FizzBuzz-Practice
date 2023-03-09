@@ -40,11 +40,36 @@ function fizzBuzz(fizzValue, buzzValue){
             returnArray.push(i);
         }        
     }
-    returnArray;
+    return returnArray;
 }
 
 function displayData(fbArray){
 
+    //get the table body element from page
+    let tableBody = document.getElementById("results");
+
+    //get the template itself
+    let templateRow = document.getElementById("fbTemplate");
+
+    //clear table
+    tableBody.innerHTML = "";
+
+    //loop is adding 5 for every increment instead of 1
+    for (let index = 0; index < fbArray.length; index += 5) {
+        
+        let tableRow = document.importNode(templateRow.content, true);
+
+        //grab use td to put in array
+        let rowCols = tableRow.querySelectorAll("td");
+        rowCols[0].textContent = fbData[i];
+        rowCols[1].textContent = fbData[i + 1];
+        rowCols[2].textContent = fbData[i + 2];
+        rowCols[3].textContent = fbData[i + 3];
+        rowCols[4].textContent = fbData[i + 4];
+
+        tableBody.appendChild(tableRow);
+
+    }
     //loop over the array and print them to the screen
 
 }
